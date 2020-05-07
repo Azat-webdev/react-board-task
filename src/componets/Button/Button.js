@@ -1,16 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Button = ({ children }) => {
+import './Button.scss'
+
+const Button = ({ children, onClick }) => {
   return (
-    <div>
+    <button className="button" onClick={onClick}>
       {children}
-    </div>
+    </button>
   )
 }
 
 Button.propTypes = {
-  text: PropTypes.string.isRequired
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
+  onClick: PropTypes.func
 }
 
 export default Button;
